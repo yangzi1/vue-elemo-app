@@ -1,0 +1,32 @@
+body,html
+   line-height: 1
+   font-weight: 200
+   font-family: 'PingFang SC','STHeitiSC-Light','Helvetica-Light',arial,sans-serif
+.clearfix
+   display: inline-block
+   &:after
+      display: block
+      content: "."
+      height: 0
+      line-height: 0
+      clear: both
+      visibility: hidden
+@media (-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5)
+  .border-1px
+     &::after
+        -webkit-transform: scaleY(0.7)
+        transform: scaleY(0.7)
+
+@media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2)
+  .border-1px
+    &::after
+      -webkit-transform: scaleY(0.5)
+      transform: scaleY(0.5)
+     /*当样式像素一定时，因手机有320px,640px等。各自的缩放比差异，所以设备显示像素就会有1Npx，2Npx。
+    公式：设备上像素 = 样式像素 * 设备像素比
+    为了保证设计稿高度还原，采用 media + scale 的方法解决
+    屏幕宽度： 320px  480px  640px
+    设备像素比： 1     1.5     2
+    通过查询它的设备像素比 devicePixelRatio
+    在设备像素比为1.5倍时， round(1px 1.5 / 0.7) = 1px
+    在设备像素比为2倍时， round(1px 2 / 0.5) = 1px*/
